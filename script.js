@@ -1,14 +1,51 @@
-const goods = [
-    { title: 'Shirt', description: 'Quality Shirt', price: 150 + '$', photo: 'src= image/featured1.png' },
-    { title: 'Socks', description: 'Quality Socks', price: 50 + '$', photo: 'src= image/featured2.png' },
-    { title: 'Jacket', description: 'Quality Jacket', price: 350 + '$', photo: 'src= image/featured3.png' },
-    { title: 'Shoes', description: 'Quality Shoes', price: 250 + '$', photo: 'src= image/featured4.png' },
-];
+var btnBasket = document.getElementById('cart-icon');
+var goodsListSection = document.getElementById('goods-list-section');
 
-const renderGoodsItem = (title, price, description, photo = 'src= image/default.png') => { //установил значения по умолчанию если не задать картинку то будет взята по умолчанию
+class GoodsItem {
+    constructor(title, price, description, src,) {
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.src = src;
+
+    }
+    //Разметка корзины
+    render() {
+        return `<div><a class="goods-item">
+        <div class="goods-item-photo-wrp">
+            <img class="goods-item-photo"src=${this.src} alt='${this.title}' height="420">
+        </div>
+        <div class="goods-item-txt-wrp">
+            <span class="goods-item-title txt">${this.title}</span>
+            <p class="goods-item-txt txt">${this.description}</p>
+            <span class="goods-item-price txt">${this.price}</span>
+        </div> </a></div>`
+    }
+}
+
+class GoodsList {
+    constructor() {
+        this.goods = [];
+    }
+    //Наполняем корзину
+    fetchGoods() {
+        this.goods = [
+            { title: 'Shirt', description: 'Quality Shirt', price: 150, src: 'image/featured1.png' },
+            { title: 'Socks', description: 'Quality Socks', price: 50, src: 'image/featured2.png' },
+            { title: 'Jacket', description: 'Quality Jacket', price: 350, src: 'image/featured3.png' },
+            { title: 'Shoes', description: 'Quality Shoes', price: 250, src: 'image/featured4.png' },
+        ];
+    }
+}
+
+
+
+
+//метод возвращает html-разметку
+const renderGoodsItem = (title, price, description, src = 'image/default.png') => { //установил значения по умолчанию если не задать картинку то будет взята по умолчанию
     return `<a class="goods-item">
     <div class="goods-item-photo-wrp">
-        <img class="goods-item-photo" ${photo} alt='${title}' height="420">
+        <img class="goods-item-photo" src=${src} alt='${title}' height="420">
     </div>
     <div class="goods-item-txt-wrp">
         <span class="goods-item-title txt">${title}</span>
@@ -24,16 +61,72 @@ const renderGoodsItem = (title, price, description, photo = 'src= image/default.
     </button>
     </a>`;
 };
+//метод для заполнения списка goods. //Method to fill the goods
+const goods = [
+    { title: 'Shirt', description: 'Quality Shirt', price: 150 + '$', src: 'image/featured1.png' },
+    { title: 'Socks', description: 'Quality Socks', price: 50 + '$', src: 'image/featured2.png' },
+    { title: 'Jacket', description: 'Quality Jacket', price: 350 + '$', src: 'image/featured3.png' },
+    { title: 'Shoes', description: 'Quality Shoes', price: 250 + '$', src: 'image/featured4.png' },
+];
 
 const renderGoodsList = list => {
-    let goodsList = list.map(item => renderGoodsItem(item.title, item.price, item.description, item.photo));
+    let goodsList = list.map(item => renderGoodsItem(item.title, item.price, item.description, item.src));
     document.querySelector('.goods-list').innerHTML = goodsList.join(''); // убрал , т.к возвращало массив и разделяло , 
 }
 
 //альтернативный вариант
 /*const renderGoodsList = list => list.forEach(el => document.querySelector('.goods-list')
-    .insertAdjacentHTML('beforeend', renderGoodsItem(el.title, el.description, el.price, el.photo)));*/
+    .insertAdjacentHTML('beforeend', renderGoodsItem(el.title, el.description, el.price, el.src)));*/
 
 
+class Cart {
+    constructor() {
+        this.goods = [];
+    }
+    //Добавляем товар в корзину
+    addCartItem(cartItem) {
+        this.goods.push(cartItem);
+    }
 
+    //Вывод итоговой суммы корзины
+    totalCartPrice() {
+        let totalPrice = document.getElementById('goods-list__total');
+        let sum = 0;
+        this.goods.forEach(good => {
+            sum += good.price
+        });
+        totalPrice.innerText = `Total amount is ${sum} $ `;
+    }
+
+    render() {
+        let listHtml = '';
+        let goodsList = document.getElementById('goods-list__product-box');
+
+        this.goods.forEach(good => {
+            const goodItem = new GoodsItem(good.title, good.price, good.description, good.src);
+            listHtml += goodItem.render();
+        });
+        goodsList.innerHTML = listHtml;
+    }
+}
+
+var renderCart = () => {
+    const list = new GoodsList();
+    const cart = new Cart();
+
+    list.fetchGoods();
+    cart.addCartItem(list.goods[0]);
+    cart.addCartItem(list.goods[1]);
+    cart.addCartItem(list.goods[2]);
+    cart.addCartItem(list.goods[3]);
+    cart.render();
+
+    cart.totalCartPrice();
+    goodsListSection.style.display = 'block';
+};
 renderGoodsList(goods);
+
+btnBasket.addEventListener('click', renderCart);
+document.querySelectorAll('.goods-list-section__delete')[0].addEventListener('click', function () {
+    document.getElementById('goods-list-section').style.display = 'none';
+});
