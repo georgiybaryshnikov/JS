@@ -1,0 +1,203 @@
+.header {
+    background: #222;
+    position: relative;
+}
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+.container-mini {
+    max-width : 1140px;
+    margin : 0 auto;
+    width : 100%;
+}
+.header-wraper {
+    display : flex;
+    justify-content: flex-end;
+    align-items : center;
+    min-height : 75px;
+}
+
+.menu-list-item-cart {
+     border : none;
+     background : transparent;
+     cursor : pointer;
+}     
+.menu-list-item-cart-icon {
+    fill : #E8E8E8;
+    transition : all 0.2s;
+    }
+    .menu-list-item-cart-icon-contain {
+    fill : #F16D7F;
+    }
+    .menu-list-item-cart-icon-text {
+    font-size : 12px;
+    }
+    .menu-list-item-cart:hover .menu-list-item-cart-icon {
+    fill : #F16D7F;
+    }
+    .menu-list-item-cart:active .menu-list-item-cart-icon {
+    opacity : 0.5;
+    }    
+
+.goods-list {
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    align-content : center;
+    flex-wrap : wrap;
+    width : 100%;
+    max-width : 1140px;
+    margin : 0 auto;
+    }
+.goods-item {
+    display: block;
+    max-width: 360px;
+    margin: 0 30px 30px 0;
+    position: relative;
+    background: #F8F8F8;
+    text-decoration: none;
+    }
+
+.goods-txt {
+    display: block;
+    width: 100%;
+    margin: 0 0 48px 0;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16.8px;
+    color: #9F9F9F;
+}
+.goods-title {
+    display: block;
+    width: 100%;
+    margin: 6px 0 0 0;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #222222;
+}
+.goods-item {
+  display : block;
+  max-width : 360px;
+  margin : 0 30px 30px 0;
+  position : relative;
+  background : #F8F8F8;
+  text-decoration : none;
+  }
+ 
+  .goods-item:hover .cart-button {
+  display : flex;
+  }
+  .goods-item:hover .cart-button:hover {
+  background-color : #ccc;
+  color : #000;
+  border : #000 solid 1px;
+  }
+  .goods-item:hover .cart-button:hover svg {
+  fill : #000;
+  }
+  .goods-item:hover .cart-button:active {
+  background-color : transparent;
+  color : #fff;
+  border : #fff solid 1px;
+  }
+  .goods-item:hover .cart-button:active svg {
+  fill : #fff;
+  }
+  .goods-item:hover .goods-item-photo {
+  filter : brightness(50%);
+  }
+  .goods-item:hover .goods-item-photo-wrp:before {
+  content : "";
+  display : block;
+  width : 100%;
+  height : 100%;
+  background : rgb(58, 56, 56, 0.86);
+  }
+  .goods-item-photo-wrp {
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  width : 100%;
+  background-color : #F7E4E2;
+  }
+  .goods-item-photo {
+  display : block;
+  margin : 0 auto;
+  }
+  .goods-item-txt-wrp {
+  padding : 25px 18px 20px 18px;
+  text-align : left;
+  }
+  .goods-item-title {
+  display : block;
+  margin : 0 0 12px 0;
+  text-transform : uppercase;
+  font-size : 13px;
+  line-height : 16px;
+  color : #000000;
+  }
+  .goods-item-txt {
+  margin : 0 0 18px 0;
+  font-weight : 300;
+  font-size : 14px;
+  line-height : 17px;
+  color : #5D5D5D;
+  }
+  .goods-item-price {
+  display : block;
+  margin : 0;
+  font-size : 16px;
+  line-height : 19px;
+  color : #F16D7F;
+  }
+  .cart-button {
+  display : none;
+  justify-content : center;
+  align-items : center;
+  width : 160px;
+  padding : 10px;
+  border : #FFFFFF solid 1px;
+  background : transparent;
+  text-align : center;
+  font-size : 14px;
+  line-height : 17px;
+  color : #FFFFFF;
+  position : absolute;
+  top : 30%;
+  left : calc(50% - 80px);
+  }
+  .cart-button svg {
+  fill : #fff;
+  margin : 0 11px 0 0;
+  }
+  .goods-btn {
+  display : block;
+  width : 211px;
+  padding : 14.5px;
+  background-color : #fff;
+  border : #F26376 solid 2px;
+  color : #F26376;
+  font-style : normal;
+  font-weight : 400;
+  font-size : 16px;
+  line-height : 19.2px;
+  text-align : center;
+  word-break : break-all;
+  }
+  .goods-btn:hover {
+  background-color : #fff;
+  border : #000 solid 2px;
+  color : #000;
+  }
+  .goods-btn:active {
+  background-color : #fff;
+  border : #F26376 solid 2px;
+  color : #F26376;
+  }
