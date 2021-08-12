@@ -227,9 +227,9 @@
       -ms-flex-direction: column;
           flex-direction: column;
   font-family: Raleway, Georgia, serif;
-  color: #800053;
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
 }
 
 #goods-list-section #goods-list-section__modal h3,
