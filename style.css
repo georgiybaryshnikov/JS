@@ -158,11 +158,10 @@
   color : #F16D7F;
   }
   .cart-button {
-  display : none;
+
   justify-content : center;
   align-items : center;
   width : 160px;
-  padding : 10px;
   border : #FFFFFF solid 1px;
   background : transparent;
   text-align : center;
@@ -201,3 +200,76 @@
   border : #F26376 solid 2px;
   color : #F26376;
   }
+  #goods-list-section {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 1800px;
+    min-width: 1600px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  }
+  #goods-list-section #goods-list-section__modal {
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 30px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 2rem;
+  position: absolute;
+  left: calc((100% - 80%)/2);
+  top: 100px;
+  z-index: 3;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: Raleway, Georgia, serif;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+#goods-list-section #goods-list-section__modal h3,
+#goods-list-section #goods-list-section__modal p {
+  padding: 30px;
+  text-align: center;
+}
+
+#goods-list-section #goods-list-section__modal .goods-list__product-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(238, 233, 233, 0.644);
+}
+
+#goods-list-section #goods-list-section__modal .goods-list__product-box span {
+  width: 50%;
+}
+main .product-card-section a.product-card-section__box aside {
+    overflow: hidden;
+  }
+#goods-list__product-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.goods-list-item__product-box__delete{
+    right: 20px;
+    position: absolute;
+    bottom: 15px;
+}
