@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Baryshnikov JS Hw4</title>
+    <style>
+        body {
+            padding: 20px 100px 0;
+        }
+
+        #btn,
+        #btn_2 {
+            padding: 10px 10px;
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="text">
+        'Hi Mary.'<br>
+        'Oh, hi.'<br>
+        'How are you doing?'<br>
+        'I'm doing alright. How about you?'<br>
+        'Not too bad. The weather is great isn't it?'<br>
+        'Yes. It's absolutely beautiful today.'<br>
+        'I wish it was like this more frequently.'<br>
+        'Me too.'<br>
+        'So where are you going now?'<br>
+        'I'm going to meet a friend of mine at the department store'<br>
+        'Going to do a little shopping?'<br>
+        'Yeah, I have to buy some presents for my parents'<br>
+        'What's the occasion?'<br>
+        'It's their anniversary.'<br>
+        'That's great. Well, you better get going. You don't want to be late.'<br>
+        'I'll see you next time.'<br>
+        'Sure.' Bye.'<br>
+    </p>
+    <button id="btn">замена</button>
+    <button id="btn_2">замена 2-й вариант</button>
+    <script>
+        'use strict'
+        let text = document.getElementById('text');
+        document.getElementById('btn').addEventListener('click', () => {
+            text.textContent = text.textContent.replace(/'/g, '"');
+        });
+        document.getElementById('btn_2').addEventListener('click', () => {
+            text.textContent = text.textContent.replace(/\B'|'\B/g, '"');
+        })
+    </script>
+</body>
+
+</html>
